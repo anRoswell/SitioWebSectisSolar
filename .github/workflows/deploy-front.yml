@@ -1,4 +1,4 @@
-name: CI/CD - Build and Deploy Frontend
+name: CI/CD - Build and Deploy Sitio Web
 
 on:
   push:
@@ -37,7 +37,7 @@ jobs:
           context: . # Tu Dockerfile de Angular debe estar en la raíz de este repo
           file: .dockerfile
           push: true
-          tags: ghcr.io/anroswell/conjunto-os-web:latest
+          tags: ghcr.io/anroswell/SitioWebSectisSolar:latest
 
   deploy:
     runs-on: ubuntu-latest
