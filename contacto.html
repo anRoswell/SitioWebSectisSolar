@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- SEO Best Practices: Metas, Charset & Responsive -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacto | SecticSolar. Conéctese directamente con nuestro equipo de ingenieros para solicitar asesorías o una demostración guiada del sistema inteligente ConjuntoOS.">
+  <meta name="keywords" content="Contacto SecticSolar, Cotizar ConjuntoOS, Soporte Tecnológico, Alfonso Navarro, Carlos Alcala, Cartagena, Turbaco, FAQ ConjuntoOS">
+  <meta name="author" content="Alfonso Navarro & Carlos Alcala">
+  <meta name="robots" content="index, follow">
+  
+  <title>Contáctenos | SecticSolar</title>
+
+  <!-- Favicon Link -->
+  <link rel="icon" type="image/png" href="assets/logo_icon_256.png" />
+
+  <!-- PrimeIcons CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/primeicons@7.0.0/primeicons.css" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Extra Contact Page Styles for FAQ Accordion -->
+  <style>
+    .faq-section {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-title {
+      font-size: 18px;
+      color: white;
+      margin-bottom: 8px;
+      font-family: var(--font-display);
+    }
+    details {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid hsl(var(--border-light));
+      border-radius: 12px;
+      padding: 16px 20px;
+      transition: var(--transition-smooth);
+    }
+    details[open] {
+      background: hsl(var(--bg-surface));
+      border-color: hsl(var(--solar-accent) / 0.3);
+    }
+    summary {
+      font-size: 13px;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      outline: none;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary::after {
+      content: '\e966'; /* PrimeIcon code for plus */
+      font-family: 'primeicons';
+      font-size: 10px;
+      color: hsl(var(--solar-accent));
+      transition: var(--transition-smooth);
+    }
+    details[open] summary::after {
+      content: '\e965'; /* PrimeIcon code for minus */
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      margin-top: 12px;
+      font-size: 12px;
+      color: hsl(var(--text-secondary));
+      line-height: 1.6;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Glassmorphic Header Navigation -->
+  <header id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon"><i class="pi pi-sun"></i></div>
+        Sectic<span>Solar</span>
+      </a>
+      
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html" id="navHome">Inicio</a></li>
+          <li><a href="quienes-somos.html" id="navAbout">Quiénes Somos</a></li>
+          <li><a href="servicios.html" id="navServices">Servicios</a></li>
+          <li><a href="contacto.html" class="active" id="navContact">Contáctenos</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="contacto.html" class="cta-button cta-header-btn" id="ctaHeader">
+          Cotizar ConjuntoOS <i class="pi pi-arrow-right"></i>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir Menú" id="navToggleBtn">
+          <i class="pi pi-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main>
+    <div class="contact-container">
+      <!-- Left Column: Contact Cards & Interactive FAQ Accordion -->
+      <div class="contact-info">
+        <div>
+          <span class="hero-badge"><i class="pi pi-envelope"></i> Conexión Directa</span>
+          <h2 class="text-3xl font-extrabold text-white mt-4 mb-4">¿Listo para llevar <br>tu edificio al futuro?</h2>
+          <p>Ponte en contacto con nuestro equipo de ingeniería. Te brindaremos asesoría experta y una demostración privada y adaptada de ConjuntoOS.</p>
+        </div>
+
+        <div class="contact-card-info">
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="pi pi-envelope"></i></div>
+            <div class="contact-item-text">
+              <h4>Correo Electrónico</h4>
+              <p>contacto@secticsolar.site</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="pi pi-phone"></i></div>
+            <div class="contact-item-text">
+              <h4>Teléfono de Soporte</h4>
+              <p>+57 300 123 4567</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="pi pi-map"></i></div>
+            <div class="contact-item-text">
+              <h4>Área de Operación</h4>
+              <p>Cartagena, Turbaco y Región Caribe, Colombia</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Interactive FAQ Accordion -->
+        <div class="faq-section">
+          <h3 class="faq-title"><i class="pi pi-question-circle text-amber-500 mr-2"></i>Preguntas Frecuentes</h3>
+          
+          <details>
+            <summary>¿Qué es ConjuntoOS y a quiénes beneficia?</summary>
+            <div class="faq-answer">
+              Es una plataforma de gestión residencial inteligente diseñada por SecticSolar. Conecta en tiempo real a la administración, vigilantes (porteros) y copropietarios de edificios o conjuntos residenciales, optimizando el control de accesos, censo familiar, mascotas y asambleas.
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Cómo se realiza el soporte y la implementación?</summary>
+            <div class="faq-answer">
+              Nuestro equipo de ingeniería liderado por Alfonso Navarro y Carlos Alcala realiza el despliegue directo en servidores seguros (VPS) dedicados a su copropiedad. Brindamos capacitación guiada al personal administrativo y de portería, además de soporte técnico 24/7.
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Los datos del historial se conservan al cambiar de inquilino?</summary>
+            <div class="faq-answer">
+              Sí. ConjuntoOS cuenta con una base de datos PostgreSQL estructurada relacionalmente para preservar el historial de todos los inquilinos anteriores de cada unidad, manteniendo su respectiva red familiar de forma segura sin realizar borrados lógicos.
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Right Column: Glassmorphic Contact Form -->
+      <div class="contact-form-wrapper">
+        <h3 class="form-title">Envíanos un Mensaje</h3>
+        <p class="form-subtitle">Trazaremos un plan a tu medida con soporte de ingeniería directo.</p>
+        
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nombre Completo *</label>
+              <input type="text" id="name" placeholder="Ej. Juan Pérez" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo Electrónico *</label>
+              <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Asunto / Interés *</label>
+            <input type="text" id="subject" placeholder="Ej. Demostración de ConjuntoOS" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje / Requerimiento *</label>
+            <textarea id="message" placeholder="Escribe aquí los detalles sobre tu conjunto o copropiedad..." required></textarea>
+          </div>
+
+          <button type="submit" class="cta-button" id="submitFormBtn">
+            Enviar Mensaje <i class="pi pi-send"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Sectic<span>Solar</span></h3>
+        <p>Servicios tecnológicos integrales, desarrollo de software avanzado y creadores de la plataforma inteligente ConjuntoOS.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-circle" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+          <a href="#" class="social-circle" aria-label="Twitter"><i class="pi pi-twitter"></i></a>
+          <a href="#" class="social-circle" aria-label="GitHub"><i class="pi pi-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+          <li><a href="servicios.html">Nuestros Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Nuestros Productos</h4>
+        <ul>
+          <li><a href="index.html">ConjuntoOS Panel Admin</a></li>
+          <li><a href="index.html">ConjuntoOS App Residente</a></li>
+          <li><a href="servicios.html">Hardware Solar IoT</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 SecticSolar. Todos los derechos reservados. Desarrollado por Ing. Alfonso Navarro & Ing. Carlos Alcala.</p>
+      <p>Cartagena - Turbaco, Colombia</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Script Link -->
+  <script src="app.js"></script>
+</body>
+</html>
