@@ -2569,3 +2569,114 @@ footer {
   }
 }
 
+/* ==========================================================================
+   Full-Width Premium Layered Backgrounds (index.html)
+   ========================================================================== */
+
+/* Hero Full-Width Background Wrapper */
+.hero-bg-wrapper {
+  position: relative;
+  background-color: hsl(var(--bg-deep));
+  /* Futuristic tech cyber-grid + nebula glows */
+  background-image: 
+    radial-gradient(circle at 10% 20%, hsl(var(--solar-accent) / 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, hsl(var(--tech-accent) / 0.08) 0%, transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+  border-bottom: 1px solid hsl(var(--border-light));
+  overflow: hidden;
+}
+
+.hero-bg-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, hsl(var(--solar-accent) / 0.02) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* Advantages Full-Width Background Wrapper */
+.advantages-bg-wrapper {
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, hsl(var(--bg-surface) / 0.4) 0%, hsl(var(--bg-deep)) 100%);
+  border-bottom: 1px solid hsl(var(--border-light));
+  overflow: hidden;
+}
+
+/* Styled Decorative Mesh Gradients on Wrapper */
+.advantages-bg-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, hsl(var(--solar-accent) / 0.05) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.advantages-bg-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, hsl(var(--tech-accent) / 0.05) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.advantages-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* Upgraded Product Showcase Full-Width Container */
+.product-showcase-container {
+  position: relative;
+  background-color: hsl(var(--bg-deep));
+  /* Focused radial glow directly behind the laptop mockup + Cyber grid pattern */
+  background-image: 
+    radial-gradient(circle at 50% 45%, hsl(var(--solar-accent) / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 15% 75%, hsl(var(--tech-accent) / 0.06) 0%, transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.005) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+  overflow: hidden;
+}
+
+.product-showcase-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, hsl(var(--solar-accent) / 0.04) 0%, transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.product-showcase {
+  position: relative;
+  z-index: 2;
+}
+
