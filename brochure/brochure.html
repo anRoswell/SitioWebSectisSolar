@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brochure Interactivo | Sectis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&family=Instrument+Serif:italic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --bg: #0a0b10;
+            --surface: #15171e;
+            --surface-hover: #1c1f26;
+            --accent: #c8873a;
+            --accent-glow: rgba(200, 135, 58, 0.3);
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.05);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 10px; border: 2px solid var(--bg); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        header {
+            padding: 80px 0 60px;
+            text-align: left;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .header-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 0 20px var(--accent-glow));
+        }
+
+        .header-tag {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        h1 em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            text-transform: none;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* Grid System */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-bottom: 100px;
+        }
+
+        .card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            padding: 32px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 380px;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, var(--accent-glow), transparent 70%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(200, 135, 58, 0.4);
+            background-color: var(--surface-hover);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Modal Styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 11, 16, 0.95);
+            backdrop-filter: blur(20px);
+            display: none;
+            z-index: 1000;
+            opacity: 0;
+            transition: var(--transition);
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            transform: scale(0.95);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-visual {
+            padding: 40px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .modal-info {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            background: var(--accent);
+            color: #000;
+            transform: rotate(90deg);
+        }
+
+        .modal-header-tag {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 30px;
+            letter-spacing: -0.04em;
+        }
+
+        .modal-body {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-list li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .feature-list li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        footer {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .modal-content {
+                grid-template-columns: 1fr;
+            }
+            .modal-info {
+                padding: 40px;
+            }
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-title {
+                font-size: 2.2rem;
+            }
+            .modal-overlay {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="../conjunta-os-web/public/logo_square_512.png" alt="Logo Sectis" class="header-logo">
+        <span class="header-tag">Tecnología para Propiedad Horizontal</span>
+        <h1>Conjunt<em>OS</em></h1>
+        <p class="subtitle">El sistema operativo todo-en-uno diseñado para digitalizar, optimizar y potenciar la vida en comunidad.</p>
+    </header>
+
+    <div class="module-grid" id="moduleGrid">
+        <!-- Generado por JS -->
+    </div>
+
+    <footer>
+        <img src="../conjunta-os-web/public/logo_square_512.png" alt="Logo Sectis" style="width: 40px; height: 40px; margin-bottom: 20px; opacity: 0.8;">
+        <div class="footer-logo">SECTIC</div>
+        <p class="card-desc">Innovación en cada rincón de tu hogar. &copy; 2026</p>
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--text-muted);">
+            <p style="font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;">Contacto Comercial</p>
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <span><strong>Alfonso Navarro:</strong> 311 705 1171</span>
+                <span><strong>Carlos Alcalá:</strong> 305 353 8397</span>
+            </div>
+            <p style="margin-top: 10px; font-weight: 600;">https://secticsolar.site</p>
+        </div>
+    </footer>
+</div>
+
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <div class="close-modal" onclick="closeModal()">
+            <i class="bi bi-x-lg"></i>
+        </div>
+        <div class="modal-visual">
+            <img src="" alt="Vista Previa" id="modalImage">
+        </div>
+        <div class="modal-info">
+            <div class="modal-header-tag">Módulo Detallado</div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-body" id="modalDesc"></p>
+            <ul class="feature-list" id="modalFeatures">
+                <!-- Características adicionales -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    const modules = [
+        {
+            id: 'dashboard',
+            title: 'Panel de Control 360°',
+            desc: 'Una visión global e instantánea de la salud de tu copropiedad.',
+            longDesc: 'El Dashboard de ConjuntOS permite a los administradores visualizar en una sola pantalla los indicadores clave: estados financieros, solicitudes de residentes pendientes, novedades de seguridad y próximas asambleas. Todo bajo una interfaz de alta gama optimizada para la toma de decisiones rápidas.',
+            icon: 'bi-grid-1x2',
+            image: 'conjuntos01.png',
+            features: [
+                'Indicadores financieros en tiempo real',
+                'Monitor de solicitudes PQRS activas',
+                'Resumen de ingresos/salidas de portería',
+                'Alertas de mantenimientos vencidos'
+            ]
+        },
+        {
+            id: 'finanzas',
+            title: 'Finanzas & Facturación',
+            desc: 'Automatización total del recaudo y cumplimiento legal DIAN.',
+            longDesc: 'Gestione la cartera del conjunto con precisión milimétrica. Generación masiva de facturas electrónicas integradas con la DIAN, portal de pagos Wompi para residentes y conciliación bancaria automatizada. Transparencia absoluta para el consejo y los propietarios.',
+            icon: 'bi-wallet2',
+            image: 'conjuntos15_ejecucion_presupuestal_admin.png',
+            features: [
+                'Facturación Electrónica de Venta (FEV) nativa',
+                'Pagos por PSE, Tarjeta y Transferencia',
+                'Reportes de ejecución presupuestal',
+                'Descarga automática de paz y salvos'
+            ]
+        },
+        {
+            id: 'seguridad',
+            title: 'Portería Inteligente',
+            desc: 'Seguridad de alto nivel y control de acceso digital.',
+            longDesc: 'Digitalice la bitácora de portería. Registre visitantes con fotografía, controle el ingreso de vehículos y gestione la correspondencia de forma profesional. Notificaciones automáticas a los residentes mediante la App Móvil al momento de cualquier ingreso.',
+            icon: 'bi-shield-lock',
+            image: 'conjuntos09_control_acceso_admin.png',
+            features: [
+                'Registro digital de visitantes y vehículos',
+                'Ingreso rápido mediante Códigos QR',
+                'Notificación instantánea de paquetes/domicilios',
+                'Botón de pánico y bitácora de novedades'
+            ]
+        },
+        {
+            id: 'censo',
+            title: 'Censo & Directorio',
+            desc: 'Base de datos centralizada de residentes y unidades.',
+            longDesc: 'Mantenga el censo de su copropiedad actualizado al 100%. Gestione propietarios, arrendatarios, mascotas y vehículos en una base de datos robusta que permite una comunicación segmentada y efectiva.',
+            icon: 'bi-people',
+            image: 'conjuntos14_directorio_unidades_admin.png',
+            features: [
+                'Ficha técnica detallada por unidad',
+                'Gestión de mascotas (razas, carnets)',
+                'Directorio de vehículos y parqueaderos',
+                'Importación masiva desde Excel'
+            ]
+        },
+        {
+            id: 'pqrs',
+            title: 'Gestión de PQRS',
+            desc: 'Canal oficial para solicitudes, quejas y reclamos.',
+            longDesc: 'Centralice la comunicación con los residentes eliminando los correos y mensajes informales. Haga seguimiento a los tiempos de respuesta (SLA) y asigne responsables internos o proveedores externos para resolver cada caso.',
+            icon: 'bi-chat-left-dots',
+            image: 'conjuntos05_pqr_admin.png',
+            features: [
+                'Trazabilidad completa de cada solicitud',
+                'Configuración de tiempos límite (SLA)',
+                'Adjuntos y fotos de evidencia',
+                'Encuestas de satisfacción al cerrar el caso'
+            ]
+        },
+        {
+            id: 'asambleas',
+            title: 'Asambleas & Votación',
+            desc: 'Decisiones legales tomadas desde cualquier lugar.',
+            longDesc: 'Realice asambleas virtuales o híbridas con total validez legal. Control de quórum automatizado por coeficiente o unidad, votaciones en tiempo real y generación instantánea de actas.',
+            icon: 'bi-check2-square',
+            image: 'conjuntos11_asamblea_admin.png',
+            features: [
+                'Votación digital con resultados en vivo',
+                'Control de quórum por coeficiente',
+                'Chat interactivo para asambleístas',
+                'Exportación de resultados y actas'
+            ]
+        },
+        {
+            id: 'servicios',
+            title: 'Zonas Comunes',
+            desc: 'Gestión inteligente de reservas y servicios.',
+            longDesc: 'Optimice el uso de las áreas comunes (salón social, piscina, gimnasio, BBQ). Configure horarios, aforos permitidos y costos de reserva. Los residentes reservan desde su App y el sistema gestiona la disponibilidad automáticamente.',
+            icon: 'bi-calendar-check',
+            image: 'conjuntos12_servicios_admin.png',
+            features: [
+                'Calendario dinámico de disponibilidad',
+                'Control de aforos y turnos',
+                'Cobro automático de depósitos de reserva',
+                'Reglamento de uso digital integrado'
+            ]
+        },
+        {
+            id: 'comunicados',
+            title: 'Comunicados',
+            desc: 'Información oficial con alcance inmediato.',
+            longDesc: 'Elimine la saturación de correos y grupos de WhatsApp informales. Envíe circulares, avisos urgentes y noticias directamente a los residentes. Utilice notificaciones push para asegurar que la información crítica sea leída al instante.',
+            icon: 'bi-megaphone',
+            image: 'conjuntos10_correspondencia_admin.png',
+            features: [
+                'Envío de Notificaciones Push directas',
+                'Segmentación por torre, bloque o rol',
+                'Confirmación de lectura por residente',
+                'Cartelera digital de eventos y circulares'
+            ]
+        },
+        {
+            id: 'presupuesto',
+            title: 'Presupuesto',
+            desc: 'Control total de la ejecución financiera.',
+            longDesc: 'Gestione el presupuesto anual de su copropiedad con total transparencia. Realice seguimiento en tiempo real a la ejecución presupuestal, controle los gastos por rubro y genere reportes detallados para el consejo y la asamblea.',
+            icon: 'bi-graph-up-arrow',
+            image: 'conjuntos15_ejecucion_presupuestal_admin.png',
+            features: [
+                'Comparativo Presupuesto vs Ejecutado',
+                'Gestión de egresos y cuentas por pagar',
+                'Reportes financieros exportables',
+                'Control de fondos de reserva e imprevistos'
+            ]
+        },
+        {
+            id: 'iot',
+            title: 'Smart IoT',
+            desc: 'Monitoreo inteligente de infraestructura.',
+            longDesc: 'Conecte su copropiedad al futuro. Monitoree niveles de tanques de agua, estado de motobombas, consumo eléctrico de zonas comunes y detección de humo en tiempo real desde la plataforma administrativa.',
+            icon: 'bi-cpu',
+            image: 'conjuntaos_dark_ui_marketing_presentation.png',
+            features: [
+                'Alertas tempranas de fallos técnicos',
+                'Sensores de nivel de agua y presión',
+                'Monitor de consumo eléctrico inteligente',
+                'Dashboard unificado de telemetría'
+            ]
+        },
+        {
+            id: 'mantenimiento',
+            title: 'Mantenimiento & OT',
+            desc: 'Gestión técnica y órdenes de trabajo.',
+            longDesc: 'Planifique y supervise los mantenimientos preventivos y correctivos. Gestione proveedores externos, asigne órdenes de trabajo (OT) y reciba reportes fotográficos del cumplimiento de tareas directamente en el sistema.',
+            icon: 'bi-tools',
+            image: 'conjuntos16_OT_listado_admin.png',
+            features: [
+                'Calendario de mantenimiento preventivo',
+                'Gestión de proveedores y contratos',
+                'Órdenes de trabajo digitales con fotos',
+                'Historial técnico por equipo o zona'
+            ]
+        },
+        {
+            id: 'movil',
+            title: 'App del Residente',
+            desc: 'La copropiedad completa en la palma de la mano.',
+            longDesc: 'Disponible para iOS y Android, nuestra App Móvil conecta al residente con su hogar. Reservas de zonas comunes, reportes de daños, pre-registro de invitados y consulta de estados de cuenta en segundos.',
+            icon: 'bi-phone',
+            image: 'movil_conjuntos01.png',
+            features: [
+                'Generación de Códigos QR para invitados',
+                'Reserva de Salón Social y zonas comunes',
+                'Consulta y pago de cuota de administración',
+                'Recibir notificaciones de portería/paquetes'
+            ]
+        }
+    ];
+
+    const grid = document.getElementById('moduleGrid');
+    const modal = document.getElementById('modalOverlay');
+
+    function renderGrid() {
+        modules.forEach(mod => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.onclick = () => openModal(mod);
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="bi ${mod.icon}"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${mod.title}</h3>
+                        <p class="card-desc">${mod.desc}</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    Ver detalles <i class="bi bi-arrow-right"></i>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function openModal(mod) {
+        document.getElementById('modalTitle').innerText = mod.title;
+        document.getElementById('modalDesc').innerText = mod.longDesc;
+        document.getElementById('modalImage').src = mod.image;
+        
+        const featureList = document.getElementById('modalFeatures');
+        featureList.innerHTML = '';
+        mod.features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="bi bi-check-circle-fill"></i> <span>${f}</span>`;
+            featureList.appendChild(li);
+        });
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    // Cerrar al hacer clic en el overlay
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    renderGrid();
+</script>
+
+</body>
+</html>
+
+

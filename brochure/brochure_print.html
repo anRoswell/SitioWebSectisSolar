@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sectis OS - Portafolio de Soluciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Syne:wght@700;800&family=Instrument+Serif:italic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --bg: #0a0b10;
+            --surface: #15171e;
+            --accent: #c8873a;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 0;
+        }
+
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Hero Header */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 60px;
+        }
+
+        .logo-main {
+            width: 70px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+
+        h1 em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            color: var(--accent);
+            text-transform: none;
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* Module Section */
+        .module-section {
+            margin-bottom: 80px;
+            page-break-inside: avoid;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .module-icon {
+            width: 50px; height: 50px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: var(--accent);
+        }
+
+        .module-title-wrap h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: -0.02em;
+        }
+
+        .module-title-wrap p {
+            color: var(--accent);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* Content Layout */
+        .module-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .module-description {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex; align-items: flex-start; gap: 8px;
+            font-size: 0.85rem; color: var(--text);
+        }
+
+        .feature-item i { color: var(--accent); font-size: 1rem; }
+
+        /* Visuals Row */
+        .visuals-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 24px;
+        }
+
+        .visual-box {
+            background: #000;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .visual-label {
+            position: absolute;
+            top: 15px; left: 15px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 9px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            z-index: 5;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .visual-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .mobile-preview {
+            max-height: 400px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-cta {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        @media print {
+            body { background: #fff; color: #000; }
+            .page-container { padding: 20px; max-width: 100%; }
+            header, footer { border-color: #eee; }
+            .visual-box { border-color: #eee; background: #fafafa; }
+            .module-icon { background: #eee; border-color: #ddd; }
+            .module-section { margin-bottom: 50px; }
+            :root { --text-muted: #555; --text: #000; }
+            h1, h2, h3 { color: #000; }
+            .visual-label { background: #eee; color: #000; border-color: #ccc; }
+        }
+
+        @media (max-width: 850px) {
+            .visuals-row { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <header>
+        <img src="../conjunta-os-web/public/logo_square_512.png" alt="Sectis Logo" class="logo-main">
+        <h1>Sectis<em>OS</em></h1>
+        <p class="header-subtitle">Plataforma integral para la gestión, seguridad y digitalización de Propiedad Horizontal.</p>
+    </header>
+
+    <!-- 1. DASHBOARD -->
+    <section class="module-section">
+        <div class="module-header">
+            <div class="module-icon"><i class="bi bi-grid-1x2"></i></div>
+            <div class="module-title-wrap">
+                <p>Módulo 01</p>
+                <h2>Panel de Control Administrativo</h2>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="module-description">
+                Control total de la copropiedad en una sola pantalla. Sectis OS centraliza indicadores financieros, operativos y de seguridad para una toma de decisiones informada.
+            </div>
+            <div class="features-grid">
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Estado financiero en tiempo real</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Monitor de PQRS y solicitudes</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Resumen de eventos de portería</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Alertas de mantenimientos</div>
+            </div>
+            <div class="visuals-row">
+                <div class="visual-box">
+                    <span class="visual-label">Interfaz Web Admin</span>
+                    <img src="conjuntos01.png" alt="Dashboard Web">
+                </div>
+                <div class="visual-box mobile-preview">
+                    <span class="visual-label">App Residente</span>
+                    <img src="movil_conjuntos01.png" alt="Dashboard Mobile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. FINANZAS -->
+    <section class="module-section">
+        <div class="module-header">
+            <div class="module-icon"><i class="bi bi-wallet2"></i></div>
+            <div class="module-title-wrap">
+                <p>Módulo 02</p>
+                <h2>Gestión Financiera & Facturación</h2>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="module-description">
+                Automatización del recaudo y cumplimiento legal. Integración nativa con la DIAN para facturación electrónica y pasarela de pagos Wompi para una cartera sana.
+            </div>
+            <div class="features-grid">
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Facturación Electrónica DIAN</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Pagos en línea (PSE, Tarjetas)</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Ejecución presupuestal en vivo</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Paz y salvos automáticos</div>
+            </div>
+            <div class="visuals-row">
+                <div class="visual-box">
+                    <span class="visual-label">Ejecución Presupuestal Web</span>
+                    <img src="conjuntos15_ejecucion_presupuestal_admin.png" alt="Finanzas Web">
+                </div>
+                <div class="visual-box mobile-preview">
+                    <span class="visual-label">Pagos App</span>
+                    <img src="movil_conjuntos04_pagos.png" alt="Finanzas Mobile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SEGURIDAD -->
+    <section class="module-section">
+        <div class="module-header">
+            <div class="module-icon"><i class="bi bi-shield-lock"></i></div>
+            <div class="module-title-wrap">
+                <p>Módulo 03</p>
+                <h2>Portería & Control de Acceso</h2>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="module-description">
+                Digitalización del flujo de ingresos. Seguridad proactiva con registro fotográfico de visitantes, control vehicular y notificaciones instantáneas de correspondencia.
+            </div>
+            <div class="features-grid">
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Invitaciones mediante QR</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Registro fotográfico de visitas</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Control de paquetes y domicilios</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Bitácora digital de novedades</div>
+            </div>
+            <div class="visuals-row">
+                <div class="visual-box">
+                    <span class="visual-label">Panel de Seguridad Web</span>
+                    <img src="conjuntos09_control_acceso_admin.png" alt="Seguridad Web">
+                </div>
+                <div class="visual-box mobile-preview">
+                    <span class="visual-label">Mis Invitados App</span>
+                    <img src="movil_conjuntos08_visita_QR.png" alt="Seguridad Mobile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PQRS -->
+    <section class="module-section">
+        <div class="module-header">
+            <div class="module-icon"><i class="bi bi-chat-left-dots"></i></div>
+            <div class="module-title-wrap">
+                <p>Módulo 04</p>
+                <h2>PQRS & Comunicación Oficial</h2>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="module-description">
+                Centralice las solicitudes de su comunidad. Seguimiento a tiempos de respuesta, asignación de tareas y envío masivo de comunicados oficiales mediante notificaciones push.
+            </div>
+            <div class="features-grid">
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Gestión de tickets por unidad</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Notificaciones push masivas</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Seguimiento fotográfico de daños</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Cartelera digital de anuncios</div>
+            </div>
+            <div class="visuals-row">
+                <div class="visual-box">
+                    <span class="visual-label">Gestión de Tickets Web</span>
+                    <img src="conjuntos05_pqr_admin.png" alt="PQRS Web">
+                </div>
+                <div class="visual-box mobile-preview">
+                    <span class="visual-label">Radicar PQR App</span>
+                    <img src="movil_conjuntos06_pqr_generar.png" alt="PQRS Mobile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. RESERVAS -->
+    <section class="module-section">
+        <div class="module-header">
+            <div class="module-icon"><i class="bi bi-calendar-check"></i></div>
+            <div class="module-title-wrap">
+                <p>Módulo 05</p>
+                <h2>Zonas Comunes & Servicios</h2>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="module-description">
+                Autogestión de áreas comunes. Los residentes reservan servicios como salones, BBQ o gimnasios, y el sistema gestiona aforos, pagos y reglamentos.
+            </div>
+            <div class="features-grid">
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Calendario de disponibilidad</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Control de aforos por zona</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Cobro automático de depósitos</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Reglamentos digitales</div>
+            </div>
+            <div class="visuals-row">
+                <div class="visual-box">
+                    <span class="visual-label">Configuración Servicios Web</span>
+                    <img src="conjuntos12_servicios_admin.png" alt="Reservas Web">
+                </div>
+                <div class="visual-box mobile-preview">
+                    <span class="visual-label">Reservar en App</span>
+                    <img src="movil_conjuntos03_reserva.png" alt="Reservas Mobile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ASAMBLEAS -->
+    <section class="module-section">
+        <div class="module-header">
+            <div class="module-icon"><i class="bi bi-check2-square"></i></div>
+            <div class="module-title-wrap">
+                <p>Módulo 06</p>
+                <h2>Asambleas & Votación Legal</h2>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="module-description">
+                Decisiones democráticas con validez legal. Control de quórum automático por coeficiente, votaciones en tiempo real y actas generadas al instante.
+            </div>
+            <div class="features-grid">
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Votación digital en vivo</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Quórum por coeficiente o unidad</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Actas automáticas auditables</div>
+                <div class="feature-item"><i class="bi bi-check2-circle"></i> Chat interactivo de asamblea</div>
+            </div>
+            <div class="visuals-row">
+                <div class="visual-box">
+                    <span class="visual-label">Panel Asamblea Web</span>
+                    <img src="conjuntos11_asamblea_admin.png" alt="Asambleas Web">
+                </div>
+                <div class="visual-box mobile-preview">
+                    <span class="visual-label">Votación en App</span>
+                    <img src="movil_conjuntos11_asamblea.png" alt="Asambleas Mobile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-cta">Potencia tu comunidad con Sectis OS</div>
+        <p style="color: var(--accent); font-weight: 700;">www.sectis.co</p>
+        <p class="header-subtitle" style="margin-top: 10px;">&copy; 2026 Sectis. Todos los derechos reservados.</p>
+    </footer>
+</div>
+
+</body>
+</html>
