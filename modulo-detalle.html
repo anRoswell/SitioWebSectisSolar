@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- SEO Best Practices: Metas, Charset & Responsive -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalle de Módulo | Ecosistema ConjuntOS - SecticSolar. Conozca en profundidad el funcionamiento técnico, las ventajas operativas y las capturas reales de la aplicación.">
+  <meta name="keywords" content="ConjuntOS, SecticSolar, Módulo Software, Administración Propiedad Horizontal, Censo Familiar, Asambleas WebSocket, Portería Digital, Finanzas Residenciales">
+  <meta name="author" content="Alfonso Navarro & Carlos Alcala">
+  <meta name="robots" content="index, follow">
+  
+  <title id="pageTitle">Detalle de Módulo | ConjuntOS</title>
+
+  <!-- Favicon Link -->
+  <link rel="icon" type="image/png" href="assets/logo_icon_256.png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSFC362XQF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HSFC362XQF');
+  </script>
+
+  <!-- PrimeIcons CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/primeicons@7.0.0/primeicons.css" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Glassmorphic Header Navigation -->
+  <header id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon"><i class="pi pi-sun"></i></div>
+        Sectic<span>Solar</span>
+      </a>
+      
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html" id="navHome">Inicio</a></li>
+          <li><a href="quienes-somos.html" id="navAbout">Quiénes Somos</a></li>
+          <li><a href="servicios.html" id="navServices">Servicios</a></li>
+          <li><a href="../Brochure/brochure.html" id="navBrochure">Brochure</a></li>
+          <li><a href="contacto.html" id="navContact">Contáctenos</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="contacto.html" class="cta-button cta-header-btn" id="ctaHeader">
+          Cotizar ConjuntOS <i class="pi pi-arrow-right"></i>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir Menú" id="navToggleBtn">
+          <i class="pi pi-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main>
+    <div class="detail-container">
+      
+      <!-- Volver Button & Header -->
+      <div class="detail-nav-back">
+        <a href="servicios.html" class="back-link"><i class="pi pi-arrow-left"></i> Volver a Servicios</a>
+      </div>
+
+      <!-- Hero Header Section -->
+      <section class="detail-hero">
+        <div class="detail-hero-content">
+          <span class="hero-badge" id="moduleBadge"><i class="pi pi-verified"></i> Módulo Operativo</span>
+          <h1 class="detail-title" id="moduleTitle">Cargando Módulo...</h1>
+          <p class="detail-lead" id="moduleLead">Cargando descripción detallada del módulo de administración...</p>
+          <div class="detail-actions">
+            <a href="contacto.html" class="cta-button" id="ctaMain">Solicitar Demostración Guiada <i class="pi pi-phone"></i></a>
+            <a href="#funcionamiento" class="cta-button secondary">Ver Cómo Funciona <i class="pi pi-arrow-down"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galería de Capturas Reales (Desktop & Mobile) -->
+      <section class="detail-showcase-gallery">
+        <div class="section-header">
+          <h2>Capturas <span>Reales de la App</span></h2>
+          <p>Visualiza la interfaz real de ConjuntOS, optimizada tanto para la consola de la administración (escritorio) como para la comodidad de los copropietarios (móviles).</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Desktop Mockup Card -->
+          <div class="gallery-card desktop-card">
+            <div class="gallery-tag"><i class="pi pi-desktop"></i> Consola del Administrador</div>
+            <div class="gallery-img-wrapper">
+              <img id="imgDesktop" src="assets/conjunto_os_dashboard.png" alt="Consola de Administración Desktop" />
+            </div>
+            <h4>Interfaz Web Administrativa</h4>
+            <p>Acceso rápido a informes, trazabilidad de logs, exportación masiva y configuración global en un entorno seguro en la nube.</p>
+          </div>
+
+          <!-- Mobile Mockup Card -->
+          <div class="gallery-card mobile-card">
+            <div class="gallery-tag"><i class="pi pi-mobile"></i> Portal del Residente</div>
+            <div class="gallery-img-wrapper">
+              <img id="imgMobile" src="assets/conjunto_os_censo_mobile.png" alt="Portal del Residente Móvil" />
+            </div>
+            <h4>Aplicación Móvil Optimizada</h4>
+            <p>Acceso ágil desde smartphones para que los residentes realicen registros, consulten estados, voten en asambleas y reciban alertas push.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Explicativo de Demostración -->
+      <section class="detail-video-section">
+        <div class="section-header">
+          <h2>Vídeo Explicativo: <span>Demostración en Acción</span></h2>
+          <p>Observa el flujo transaccional dinámico del módulo en vivo. Haz clic en reproducir para iniciar la guía de demostración simulada.</p>
+        </div>
+
+        <div class="video-player-wrapper">
+          <div class="video-container" id="videoContainer">
+            <!-- Simulated Video Screen -->
+            <div class="video-screen">
+              <img id="videoThumbnail" src="assets/conjunto_os_dashboard.png" alt="Video Walkthrough Preview" />
+              <!-- Glassmorphic Video Overlay when not playing -->
+              <div class="video-overlay" id="videoOverlay">
+                <button class="video-play-btn" id="videoPlayCenterBtn" aria-label="Reproducir video"><i class="pi pi-play"></i></button>
+                <p>Reproducir Demostración de Funcionamiento</p>
+              </div>
+              <!-- Simulated Video Active Player Effects (Spinner/Controls) -->
+              <div class="video-active-spinner" id="videoSpinner">
+                <i class="pi pi-spin pi-spinner"></i>
+                <span>Conectando WebSocket a ConjuntOS Server...</span>
+              </div>
+              <!-- Textual Action Log simulating walkthrough steps -->
+              <div class="video-action-log" id="videoActionLog">
+                <span class="log-tag"><i class="pi pi-info-circle"></i> Simulación Activa</span>
+                <p id="videoActionText">Iniciando demostración guiada...</p>
+              </div>
+            </div>
+            <!-- Interactive Video Controls -->
+            <div class="video-controls">
+              <button class="control-btn" id="btnPlayPause" aria-label="Reproducir/Pausar"><i class="pi pi-play"></i></button>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+              </div>
+              <div class="video-time" id="videoTime">0:00 / 0:45</div>
+              <div class="video-badge-live"><span class="pulse-dot"></span> LIVE DEMO</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guía Paso a Paso de Funcionamiento -->
+      <section class="detail-steps-section" id="funcionamiento">
+        <div class="section-header">
+          <h2>Funcionamiento <span>Paso a Paso</span></h2>
+          <p>Conozca el flujo operativo de ConjuntOS, diseñado para ser rápido, sencillo e inalterable.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Paso 1 -->
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3 id="step1Title">Configuración e Ingreso</h3>
+            <p id="step1Desc">El administrador o personal de portería ingresa de manera segura a la interfaz de ConjuntOS mediante sus credenciales autorizadas.</p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3 id="step2Title">Operación e Interacción</h3>
+            <p id="step2Desc">Se realiza el registro activo en caliente (censo, correspondencia, votaciones o control vehicular) capturando datos o fotos vía webcam.</p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3 id="step3Title">Resultados y Notificaciones</h3>
+            <p id="step3Desc">El sistema procesa los datos en tiempo real mediante sockets, actualiza la base de datos PostgreSQL e informa mediante alertas push y PDFs automáticos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabla Comparativa Tradicional vs ConjuntOS -->
+      <section class="detail-comparison-section">
+        <div class="section-header">
+          <h2>¿Cómo mejora la <span>Gestión de su Propiedad</span>?</h2>
+          <p>Comparemos las dificultades operativas de los métodos tradicionales frente a la inmediatez y orden que proporciona ConjuntOS.</p>
+        </div>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Proceso Operativo</th>
+                <th>Administración Tradicional</th>
+                <th>Administración con ConjuntOS</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonTableBody">
+              <!-- Dynamically Populated -->
+              <tr>
+                <td><strong>Control de Registros</strong></td>
+                <td><span class="comp-bad"><i class="pi pi-times-circle"></i> Libros físicos</span> Lentos, propensos a pérdida de información y difíciles de auditar.</td>
+                <td><span class="comp-good"><i class="pi pi-check-circle"></i> Base de datos en nube</span> Registro inalterable indexado y auditable al instante.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FAQs específicas -->
+      <section class="detail-faq-section">
+        <div class="section-header">
+          <h2>Preguntas <span>Frecuentes del Módulo</span></h2>
+          <p>Resolvemos sus dudas técnicas y operativas sobre el funcionamiento de esta herramienta.</p>
+        </div>
+
+        <div class="faq-accordion" id="faqAccordion">
+          <!-- Dynamically Populated -->
+          <details>
+            <summary>¿Los datos del historial se conservan al cambiar de inquilino?</summary>
+            <div class="faq-answer">
+              Sí. ConjuntOS cuenta con una base de datos PostgreSQL estructurada relacionalmente para preservar el historial de todos los inquilinos anteriores de cada unidad, manteniendo su respectiva red familiar de forma segura sin realizar borrados lógicos.
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- CTA Footer Demostración -->
+      <section class="detail-cta-footer">
+        <div class="cta-footer-card">
+          <div class="cta-footer-icon"><i class="pi pi-bolt"></i></div>
+          <h3>Lleve su Edificio a una Nueva Era Tecnológica</h3>
+          <p>¿Listo para probar ConjuntOS en su copropiedad? Coordine una videollamada de demostración guiada y personalizada de 15 minutos con nuestro equipo de ingeniería.</p>
+          <a href="contacto.html" class="cta-button">Cotizar Ecosistema Completo <i class="pi pi-arrow-right"></i></a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Sectic<span>Solar</span></h3>
+        <p>Servicios tecnológicos integrales, desarrollo de software avanzado y creadores de la plataforma inteligente ConjuntOS.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-circle" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+          <a href="#" class="social-circle" aria-label="Twitter"><i class="pi pi-twitter"></i></a>
+          <a href="#" class="social-circle" aria-label="GitHub"><i class="pi pi-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+          <li><a href="servicios.html">Nuestros Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Nuestros Productos</h4>
+        <ul>
+          <li><a href="index.html">ConjuntOS Panel Admin</a></li>
+          <li><a href="index.html">ConjuntOS App Residente</a></li>
+          <li><a href="servicios.html">Hardware Solar IoT</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 SecticSolar. Todos los derechos reservados. Desarrollado por Ing. Alfonso Navarro & Ing. Carlos Alcala.</p>
+      <p>Cartagena - Turbaco, Colombia</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Script Link -->
+  <script src="app.js"></script>
+</body>
+</html>

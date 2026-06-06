@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sectis OS - Portafolio de Soluciones Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=Instrument+Serif:italic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --bg: #0a0b10;
+            --surface: #15171e;
+            --accent: #c8873a;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* --- PORTADA --- */
+        .hero-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            page-break-after: always;
+        }
+
+        .hero-logo { width: 120px; margin-bottom: 40px; filter: drop-shadow(0 0 30px var(--accent)); }
+        
+        .hero-page h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 6rem;
+            line-height: 0.85;
+            letter-spacing: -0.05em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-page h1 em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            color: var(--accent);
+            text-transform: none;
+            font-weight: 400;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 800px;
+        }
+
+        /* --- MODULOS --- */
+        .module-block {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border);
+            page-break-inside: avoid;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        /* Alternancia de imagen izquierda/derecha */
+        .module-block:nth-child(even) .module-grid {
+            grid-template-columns: 1.2fr 1fr;
+        }
+        .module-block:nth-child(even) .module-visuals { order: 2; }
+        .module-block:nth-child(even) .module-info { order: 1; }
+
+        .module-tag {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .module-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 30px;
+            letter-spacing: -0.04em;
+        }
+
+        .module-summary {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .platform-columns {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .platform-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 24px;
+        }
+
+        .platform-box h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+        }
+
+        .platform-box ul { list-style: none; }
+        .platform-box li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        .platform-box li i { color: var(--accent); font-size: 1.1rem; }
+
+        /* Visuals Layout Fix */
+        .module-visuals {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .visual-container {
+            position: relative;
+            background: #000;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            padding-top: 25px;
+        }
+
+        .visual-container::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 15px;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #ff5f56;
+            box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
+            z-index: 10;
+        }
+
+        .visual-label-tag {
+            position: absolute;
+            top: 8px; right: 15px;
+            font-size: 8px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+            z-index: 10;
+        }
+
+        .web-shot {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .mobile-showcase {
+            display: flex;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--border);
+        }
+
+        .mobile-frame {
+            width: 180px;
+            border: 6px solid #222;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            background: #000;
+            overflow: hidden;
+        }
+
+        .mobile-frame img {
+            width: 100%;
+            display: block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-cta {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        @media print {
+            body { background: #fff !important; color: #000 !important; }
+            .module-block { page-break-after: always; padding: 40px 0; border: none; }
+            .visual-container, .mobile-showcase { border-color: #ddd; background: #fafafa; }
+            .platform-box { background: #f9f9f9; border-color: #eee; }
+            :root { --text-muted: #444; --text: #000; --border: #eee; }
+            h1, h2, h3, .module-title { color: #000 !important; }
+            .hero-page { border: none; }
+        }
+
+        @media (max-width: 950px) {
+            .module-grid { grid-template-columns: 1fr !important; }
+            .module-visuals { order: 2 !important; }
+            .module-info { order: 1 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- PORTADA -->
+    <div class="hero-page">
+        <img src="../assets/logo_horizontal_color.png" alt="Sectis Logo" class="hero-logo">
+        <h1>Conjunt<em>OS</em></h1>
+        <p class="hero-tagline">El Sistema Operativo definitivo para la gestión integral de Propiedad Horizontal.</p>
+        <div style="margin-top: 40px; color: var(--accent); font-weight: 800; letter-spacing: 0.5em; font-size: 12px; text-transform: uppercase;">Ecosistema Digital 360° | Portafolio 2026</div>
+    </div>
+
+    <!-- 1. DASHBOARD -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 01 | Gestión Central</span>
+                <h2 class="module-title">Dashboard &<br>Visión Global 360°</h2>
+                <p class="module-summary">Tome el control absoluto de su copropiedad con indicadores en tiempo real.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-laptop"></i> Operación Web (Administración)</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Monitor financiero instantáneo de cartera y egresos.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Control de solicitudes pendientes y novedades críticas.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Resumen operativo de portería y mantenimientos programados.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Panel Administrativo Global</span>
+                    <img src="conjuntos01.png" alt="Dashboard Web" class="web-shot">
+                </div>
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <img src="movil_conjuntos01.png" alt="Home App Mobile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. FINANZAS -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 02 | Automatización</span>
+                <h2 class="module-title">Finanzas &<br>Recaudos DIAN</h2>
+                <p class="module-summary">Digitalización total del flujo de caja con cumplimiento legal automático.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-laptop"></i> Gestión Web</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Facturación Electrónica masiva integrada con la DIAN.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Conciliación bancaria automática de recaudos.</li>
+                        </ul>
+                    </div>
+                    <div class="platform-box">
+                        <h4><i class="bi bi-phone"></i> Beneficio Residente</h4>
+                        <ul>
+                            <li><i class="bi bi-credit-card-2-front"></i> Pagos vía PSE, tarjetas y corresponsales (Wompi).</li>
+                            <li><i class="bi bi-file-earmark-pdf"></i> Descarga de estados de cuenta y paz y salvos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Gestión de Facturación y Recaudos</span>
+                    <img src="conjuntos15_ejecucion_presupuestal_admin.png" alt="Finanzas Web" class="web-shot">
+                </div>
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <img src="movil_conjuntos04_financiera.png" alt="Pagos App">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. PORTERIA -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 03 | Seguridad</span>
+                <h2 class="module-title">Portería &<br>Acceso Digital</h2>
+                <p class="module-summary">Seguridad blindada con trazabilidad completa de ingresos y salidas.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-shield-check"></i> Operación Portero</h4>
+                        <ul>
+                            <li><i class="bi bi-camera"></i> Registro fotográfico de visitantes y vehículos.</li>
+                            <li><i class="bi bi-qr-code-scan"></i> Validación instantánea de invitaciones residentes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Monitor de Control de Acceso</span>
+                    <img src="conjuntos09_control_acceso_admin.png" alt="Portería Web" class="web-shot">
+                </div>
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <img src="movil_conjuntos08_visita_QR.png" alt="Invitados QR Mobile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. DIRECTORIO -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 04 | Censo Digital</span>
+                <h2 class="module-title">Directorio &<br>Censo de Unidades</h2>
+                <p class="module-summary">Base de datos unificada de residentes, vehículos, mascotas y unidades.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-laptop"></i> Administración</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Ficha técnica completa de cada unidad privada.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Directorio de propietarios y arrendatarios actualizado.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Directorio Administrativo de Unidades</span>
+                    <img src="conjuntos14_directorio_unidades_admin.png" alt="Directorio Web" class="web-shot">
+                </div>
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <img src="movil_conjuntos02.png" alt="Censo Mobile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. PQRS -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 05 | Comunicación</span>
+                <h2 class="module-title">PQRS &<br>Atención Oficial</h2>
+                <p class="module-summary">Canal centralizado para solicitudes, quejas y reclamos con trazabilidad.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-laptop"></i> Gestión Admin</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Asignación de tickets y control de tiempos de respuesta.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Historial auditable de cada interacción con el residente.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Bandeja de Gestión PQRS</span>
+                    <img src="conjuntos05_pqr_admin.png" alt="PQRS Web" class="web-shot">
+                </div>
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <img src="movil_conjuntos06_pqr_generar.png" alt="PQRS App Mobile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. ASAMBLEAS -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 06 | Democracia</span>
+                <h2 class="module-title">Asambleas &<br>Votación Legal</h2>
+                <p class="module-summary">Toma de decisiones con validez legal y resultados en tiempo real.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-laptop"></i> Administración</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Control de quórum por coeficiente o unidad.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Generación automática de actas y anexos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Módulo de Asambleas Virtuales</span>
+                    <img src="conjuntos11_asamblea_admin.png" alt="Asambleas Web" class="web-shot">
+                </div>
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <img src="movil_conjuntos11_asamblea.png" alt="Votación App Mobile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. ZONAS COMUNES -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 07 | Reservas</span>
+                <h2 class="module-title">Zonas Comunes &<br>Servicios</h2>
+                <p class="module-summary">Optimización del uso de salones, BBQ, gimnasios y áreas recreativas.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-calendar-check"></i> Autogestión</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Calendario dinámico de disponibilidad por zona.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Cobro automático de depósitos de reserva.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Control Administrativo de Reservas</span>
+                    <img src="conjuntos20_reserva_agenda_admin.png" alt="Agenda Web" class="web-shot">
+                </div>
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <img src="movil_conjuntos03_reservas_servicios_comunes.png" alt="Reserva App Mobile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. COMUNICADOS -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 08 | Información</span>
+                <h2 class="module-title">Comunicados &<br>Notificaciones Push</h2>
+                <p class="module-summary">Información oficial con alcance garantizado a toda la comunidad.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-megaphone"></i> Alcance Total</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Envío de circulares digitales masivas o segmentadas.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Notificaciones push urgentes al celular del residente.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Centro de Mensajería Oficial</span>
+                    <img src="conjuntos10_correspondencia_admin.png" alt="Comunicados Web" class="web-shot">
+                </div>
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <img src="movil_conjuntos09_paquetes.png" alt="Notificaciones App">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. PRESUPUESTO -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 09 | Transparencia</span>
+                <h2 class="module-title">Presupuesto &<br>Ejecución Financiera</h2>
+                <p class="module-summary">Control exhaustivo de los recursos de la copropiedad.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-graph-up-arrow"></i> Gestión Admin</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Comparativo en tiempo real de Presupuesto vs Ejecutado.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Gestión de egresos, fondos de reserva y gastos comunes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Panel de Ejecución Presupuestal</span>
+                    <img src="conjuntos15_ejecucion_presupuestal_admin.png" alt="Presupuesto Web" class="web-shot">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. MANTENIMIENTO -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 10 | Técnico</span>
+                <h2 class="module-title">Mantenimiento &<br>Órdenes de Trabajo</h2>
+                <p class="module-summary">Asegure la vida útil de sus activos con una gestión técnica rigurosa.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-tools"></i> Operación OT</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Cronograma de mantenimientos preventivos y correctivos.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Gestión de proveedores con reportes fotográficos de cumplimiento.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="visual-container">
+                    <span class="visual-label-tag">Gestión de Proveedores y OTs</span>
+                    <img src="conjuntos16_OT_listado_admin.png" alt="Mantenimiento Web" class="web-shot">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. APP MOVIL -->
+    <div class="module-block">
+        <div class="module-grid">
+            <div class="module-info">
+                <span class="module-tag">Módulo 11 | Experiencia</span>
+                <h2 class="module-title">App Móvil del<br>Residente</h2>
+                <p class="module-summary">Toda la copropiedad en el bolsillo de su comunidad.</p>
+                <div class="platform-columns">
+                    <div class="platform-box">
+                        <h4><i class="bi bi-phone-vibrate"></i> Conectividad</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Interfaz intuitiva y elegante en modo "Dark Premium".</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Integración total con todos los servicios del conjunto.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module-visuals">
+                <div class="mobile-showcase" style="gap: 40px; flex-wrap: wrap;">
+                    <div class="mobile-frame"><img src="movil_conjuntos01.png" alt="App 1"></div>
+                    <div class="mobile-frame"><img src="movil_conjuntos04_financiera.png" alt="App 2"></div>
+                    <div class="mobile-frame"><img src="movil_conjuntos08_visita_QR.png" alt="App 3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL -->
+    <footer>
+        <div class="footer-cta">ConjuntOS: El Sistema Operativo de su Copropiedad</div>
+        
+        <div style="margin: 40px 0; display: flex; flex-direction: column; gap: 15px; border: 1px solid var(--border); padding: 30px; border-radius: 30px; background: rgba(255,255,255,0.02);">
+            <p style="color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; font-size: 11px; margin-bottom: 10px;">Contacto Comercial</p>
+            <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;">
+                <div style="text-align: left;">
+                    <p style="font-weight: 700; color: #fff; font-size: 1.1rem;">Alfonso Navarro</p>
+                    <p style="color: var(--accent); font-weight: 600;">311 705 1171</p>
+                </div>
+                <div style="text-align: left;">
+                    <p style="font-weight: 700; color: #fff; font-size: 1.1rem;">Carlos Alcalá</p>
+                    <p style="color: var(--accent); font-weight: 600;">305 353 8397</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="color: var(--accent); font-weight: 800; font-size: 1.2rem; letter-spacing: 0.1em; margin-bottom: 10px;">HTTPS://SECTICSOLAR.SITE</p>
+        <p style="opacity: 0.5; font-size: 0.8rem;">&copy; 2026 Sectic. Todos los derechos reservados.</p>
+    </footer>
+</div>
+
+</body>
+</html>
+
+

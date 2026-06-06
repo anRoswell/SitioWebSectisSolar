@@ -4,15 +4,25 @@
   <!-- SEO Best Practices: Metas, Charset & Responsive -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SecticSolar - Soluciones tecnológicas de vanguardia. Creadores de ConjuntoOS, la plataforma definitiva de administración en tiempo real para copropiedades horizontales.">
-  <meta name="keywords" content="SecticSolar, ConjuntoOS, Software Copropiedades, Administración Horizontal, Alfonso Navarro, Carlos Alcala, Cartagena, Turbaco, Ingeniería de Sistemas">
+  <meta name="description" content="SecticSolar - Soluciones tecnológicas de vanguardia. Creadores de ConjuntOS, la plataforma definitiva de administración en tiempo real para copropiedades horizontales.">
+  <meta name="keywords" content="SecticSolar, ConjuntOS, Software Copropiedades, Administración Horizontal, Alfonso Navarro, Carlos Alcala, Cartagena, Turbaco, Ingeniería de Sistemas">
   <meta name="author" content="Alfonso Navarro & Carlos Alcala">
   <meta name="robots" content="index, follow">
   
-  <title>SecticSolar | Inicio & ConjuntoOS</title>
+  <title>SecticSolar | Inicio & ConjuntOS</title>
 
   <!-- Favicon Link -->
   <link rel="icon" type="image/png" href="assets/logo_icon_256.png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSFC362XQF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HSFC362XQF');
+  </script>
 
   <!-- PrimeIcons CDN for lightweight vectors -->
   <link rel="stylesheet" href="https://unpkg.com/primeicons@7.0.0/primeicons.css" />
@@ -35,13 +45,14 @@
           <li><a href="index.html" class="active" id="navHome">Inicio</a></li>
           <li><a href="quienes-somos.html" id="navAbout">Quiénes Somos</a></li>
           <li><a href="servicios.html" id="navServices">Servicios</a></li>
+          <li><a href="../Brochure/brochure.html" id="navBrochure">Brochure</a></li>
           <li><a href="contacto.html" id="navContact">Contáctenos</a></li>
         </ul>
       </nav>
 
       <div class="flex items-center gap-4">
         <a href="contacto.html" class="cta-button cta-header-btn" id="ctaHeader">
-          Cotizar ConjuntoOS <i class="pi pi-arrow-right"></i>
+          Cotizar ConjuntOS <i class="pi pi-arrow-right"></i>
         </a>
         <button class="nav-toggle" aria-label="Abrir Menú" id="navToggleBtn">
           <i class="pi pi-bars"></i>
@@ -53,80 +64,229 @@
   <!-- Main Content Layout -->
   <main>
     <!-- HERO SECTION -->
-    <section class="hero-section">
-      <div class="hero-text">
-        <div class="hero-badge">
-          <i class="pi pi-bolt"></i> Nueva Era Tecnológica
-        </div>
-        <h1 class="hero-title">
-          Transformamos la Gestión Residencial con <span>ConjuntoOS</span>
-        </h1>
-        <p class="hero-description">
-          SecticSolar es una compañía de prestación de servicios tecnológicos de última generación. Desarrollamos herramientas robustas y seguras para resolver las complejidades de la vida en comunidad y la administración moderna.
-        </p>
-        <div class="hero-actions">
-          <a href="contacto.html" class="cta-button" id="heroCtaPrimary">
-            Presentación Gratuita
-          </a>
-          <a href="quienes-somos.html" class="cta-button secondary" id="heroCtaSecondary">
-            Conocer Creadores
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-value">100%</span>
-            <span class="stat-label">Seguro & Multi-Tenant</span>
+    <div class="hero-bg-wrapper">
+      <section class="hero-section">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="pi pi-bolt"></i> Nueva Era Tecnológica
           </div>
-          <div class="stat-item">
-            <span class="stat-value">Real-Time</span>
-            <span class="stat-label">Sincronización Activa</span>
+          <h1 class="hero-title">
+            Transformamos la Gestión Residencial con <br>
+            <img src="assets/logo_horizontal_white.png" alt="ConjuntOS" style="max-height: 80px; margin-top: 20px; display: inline-block;">
+          </h1>
+          <p class="hero-description">
+            SecticSolar es una compañía de prestación de servicios tecnológicos de última generación. Desarrollamos herramientas robustas y seguras para resolver las complejidades de la vida en comunidad y la administración moderna.
+          </p>
+          <div class="hero-actions">
+            <a href="contacto.html" class="cta-button" id="heroCtaPrimary">
+              Presentación Gratuita
+            </a>
+            <a href="quienes-somos.html" class="cta-button secondary" id="heroCtaSecondary">
+              Conocer Creadores
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-value">100%</span>
+              <span class="stat-label">Seguro & Multi-Tenant</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">Real-Time</span>
+              <span class="stat-label">Sincronización Activa</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="hero-image-wrapper">
-        <div class="hero-image">
-          <img src="assets/sectic_solar_hero.png" alt="SecticSolar Banner Tecnológico" />
+        <div class="hero-image-wrapper">
+          <div class="hero-image">
+            <img src="assets/sectic_solar_hero.png" alt="SecticSolar Banner Tecnológico" />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- PRODUCT SHOWCASE (ConjuntoOS) -->
-    <div class="product-showcase-container">
-      <div class="product-showcase">
-        <div class="section-header">
-          <h2>El Corazón de Nuestra Innovación: <span>ConjuntoOS</span></h2>
-          <p>El sistema definitivo de administración y control digital para copropiedades horizontales, diseñado para conectar a administradores, porteros y copropietarios en tiempo real.</p>
+    <!-- ADVANTAGES OF PROPERTY MANAGEMENT SOFTWARE -->
+    <div class="advantages-bg-wrapper" id="advantagesSec">
+      <section class="advantages-section">
+        <div class="section-header scroll-reveal">
+          <span class="hero-badge"><i class="pi pi-check-circle"></i> Eficiencia y Control</span>
+          <h2>¿Por qué automatizar con un <span>Software de Administración</span>?</h2>
+          <p>La administración moderna de propiedad horizontal requiere inmediatez, transparencia y ciberseguridad. ConjuntOS soluciona las fricciones operativas y reduce los costos al conectar a toda la comunidad.</p>
         </div>
         
+        <div class="advantages-grid">
+          <!-- Role 1: Administradores -->
+          <div class="advantage-card role-admin scroll-reveal">
+            <div class="role-badge"><i class="pi pi-cog"></i> Para la Administración</div>
+            <h3>Control Total en un Clic</h3>
+            <p>Optimiza la gestión diaria, liberando tiempo operativo para proyectos de valor en la copropiedad.</p>
+            <ul class="advantage-list">
+              <li><i class="pi pi-check"></i> <strong>Reducción de Cartera:</strong> Alertas dinámicas de cobro reducen la morosidad hasta un 40%.</li>
+              <li><i class="pi pi-check"></i> <strong>Censo Automatizado:</strong> Depuración inmediata al expirar contratos de arrendamiento.</li>
+              <li><i class="pi pi-check"></i> <strong>Actas al Instante:</strong> Generación de actas en PDF validadas legalmente.</li>
+            </ul>
+          </div>
+
+          <!-- Role 2: Copropietarios -->
+          <div class="advantage-card role-copropietario scroll-reveal">
+            <div class="role-badge"><i class="pi pi-users"></i> Para Copropietarios</div>
+            <h3>Convivencia y Transparencia</h3>
+            <p>Fomenta la participación comunitaria activa y el acceso seguro a la información residencial.</p>
+            <ul class="advantage-list">
+              <li><i class="pi pi-check"></i> <strong>Democracia Digital:</strong> Votaciones en vivo desde smartphones en asambleas virtuales.</li>
+              <li><i class="pi pi-check"></i> <strong>Habeas Data Blindado:</strong> Tus datos protegidos contra visualizaciones no autorizadas.</li>
+              <li><i class="pi pi-check"></i> <strong>Estados en Vivo:</strong> Visualización en tiempo real de cuentas y estados de pago.</li>
+            </ul>
+          </div>
+
+          <!-- Role 3: Vigilantes -->
+          <div class="advantage-card role-vigilante scroll-reveal">
+            <div class="role-badge"><i class="pi pi-shield"></i> Para la Portería</div>
+            <h3>Seguridad Física Inteligente</h3>
+            <p>Reemplaza los cuadernos de papel por una bitácora digital inalterable con soporte de ingeniería.</p>
+            <ul class="advantage-list">
+              <li><i class="pi pi-check"></i> <strong>Registro Fotográfico:</strong> Capturas instantáneas de visitantes y mensajería vía webcam.</li>
+              <li><i class="pi pi-check"></i> <strong>Control Vehicular:</strong> Validación rápida de zonas de parqueo y vehículos autorizados.</li>
+              <li><i class="pi pi-check"></i> <strong>Bitácora en la Nube:</strong> Historial inalterable auditable en segundos por el consejo.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PRODUCT SHOWCASE (ConjuntOS) -->
+    <div class="product-showcase-container">
+      <div class="product-showcase">
+        <div class="section-header scroll-reveal">
+          <span class="hero-badge"><i class="pi pi-desktop"></i> Software en Acción</span>
+          <h2>El Corazón de Nuestra Innovación: <span>ConjuntOS</span></h2>
+          <p>Explora los módulos clave diseñados para integrar a administradores, porteros y residentes en tiempo real. Haz clic en las pestañas para ver las ventajas operativas y capturas reales de la aplicación.</p>
+        </div>
+        
+        <!-- Slider Interface tabs -->
+        <div class="slider-tabs scroll-reveal">
+          <button class="slider-tab active" data-slide="0" id="tabCenso">
+            <i class="pi pi-users"></i>
+            <span>Censo y Familias</span>
+          </button>
+          <button class="slider-tab" data-slide="1" id="tabAsambleas">
+            <i class="pi pi-comments"></i>
+            <span>Asambleas en Vivo</span>
+          </button>
+          <button class="slider-tab" data-slide="2" id="tabPorteria">
+            <i class="pi pi-shield"></i>
+            <span>Portería Digital</span>
+          </button>
+          <button class="slider-tab" data-slide="3" id="tabFinanzas">
+            <i class="pi pi-wallet"></i>
+            <span>Control Financiero</span>
+          </button>
+        </div>
+
         <div class="showcase-grid">
-          <div class="laptop-mockup">
+          <!-- Left: Mockup Laptop with Slider inside screen -->
+          <div class="laptop-mockup scroll-reveal" id="laptopSliderWrapper">
             <div class="laptop-screen">
-              <img src="assets/conjunto_os_dashboard.png" alt="ConjuntoOS Dashboard Panel" />
+              <div class="slider-images-container">
+                <!-- Slide 0: Censo -->
+                <div class="slider-slide active" data-slide="0">
+                  <img src="assets/conjunto_os_censo.png" alt="ConjuntOS Censo y Red Familiar" />
+                </div>
+                <!-- Slide 1: Asambleas -->
+                <div class="slider-slide" data-slide="1">
+                  <img src="assets/conjunto_os_asambleas.png" alt="ConjuntOS Asambleas en Tiempo Real" />
+                </div>
+                <!-- Slide 2: Portería -->
+                <div class="slider-slide" data-slide="2">
+                  <img src="assets/conjunto_os_porteria.png" alt="ConjuntOS Portería y Accesos" />
+                </div>
+                <!-- Slide 3: Finanzas -->
+                <div class="slider-slide" data-slide="3">
+                  <img src="assets/conjunto_os_finanzas.png" alt="ConjuntOS Finanzas y Cartera" />
+                </div>
+              </div>
             </div>
+            <!-- Laptop reflection/glow -->
+            <div class="laptop-glow"></div>
+            <!-- Navigation buttons -->
+            <button class="slider-nav-btn prev" aria-label="Anterior diapositiva" id="btnPrevSlide"><i class="pi pi-chevron-left"></i></button>
+            <button class="slider-nav-btn next" aria-label="Siguiente diapositiva" id="btnNextSlide"><i class="pi pi-chevron-right"></i></button>
           </div>
           
-          <div class="showcase-features">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="pi pi-users"></i></div>
-              <div class="feature-content">
+          <!-- Right: Interactive Descriptions linking to slides -->
+          <div class="showcase-descriptions scroll-reveal">
+            <!-- Desc 0: Censo -->
+            <div class="desc-card active" data-slide="0">
+              <div class="desc-header">
+                <span class="desc-badge">Gestión Habitacional</span>
                 <h3>Censo & Red Familiar Inteligente</h3>
-                <p>Administración y trazabilidad de habitantes, propietarios e inquilinos en caliente. Incluye registro opcional de fotos por webcam y preservación de historial en base de datos.</p>
+              </div>
+              <p>Mapea dinámicamente quién habita en cada apartamento. Registra de forma segura a propietarios, inquilinos, vehículos, e inclusive mascotas.</p>
+              <ul class="desc-bullets">
+                <li><i class="pi pi-check-circle"></i> Carga ágil de fotos en vivo mediante webcam de portería o archivos locales.</li>
+                <li><i class="pi pi-check-circle"></i> Vinculación familiar interactiva por niveles de parentesco y roles de ocupación.</li>
+                <li><i class="pi pi-check-circle"></i> Historial preservado sin borrado lógico al cambiar de inquilinos.</li>
+              </ul>
+              <div class="desc-cta">
+                <a href="contacto.html" class="cta-button secondary">
+                  Probar Censo <i class="pi pi-arrow-right"></i>
+                </a>
               </div>
             </div>
 
-            <div class="feature-card">
-              <div class="feature-icon"><i class="pi pi-key"></i></div>
-              <div class="feature-content">
-                <h3>Matriz Interactiva de Seguridad</h3>
-                <p>Control minucioso y en pantalla completa de permisos de usuario. Permite rotar accesos en un clic y personalizar roles del personal operativo e inquilinos.</p>
-              </div>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon"><i class="pi pi-clock"></i></div>
-              <div class="feature-content">
+            <!-- Desc 1: Asambleas -->
+            <div class="desc-card" data-slide="1">
+              <div class="desc-header">
+                <span class="desc-badge">Sockets en Vivo</span>
                 <h3>Asambleas en Tiempo Real</h3>
-                <p>Registro digitalizado de quórum legal, votos en vivo integrados mediante WebSockets desde smartphones y previsualización en caliente de actas oficiales en PDF.</p>
+              </div>
+              <p>Elimina las largas jornadas de votación manual. Realiza asambleas híbridas o 100% virtuales con cómputo automatizado de coeficientes de copropiedad.</p>
+              <ul class="desc-bullets">
+                <li><i class="pi pi-check-circle"></i> Monitoreo de quórum legal instantáneo vía WebSockets activos en smartphones.</li>
+                <li><i class="pi pi-check-circle"></i> Votos interactivos ponderados por coeficientes de propiedad y blindaje antifraude.</li>
+                <li><i class="pi pi-check-circle"></i> Exportación en un clic del acta reglamentaria oficial en formato PDF.</li>
+              </ul>
+              <div class="desc-cta">
+                <a href="contacto.html" class="cta-button secondary">
+                  Probar Asambleas <i class="pi pi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Desc 2: Portería -->
+            <div class="desc-card" data-slide="2">
+              <div class="desc-header">
+                <span class="desc-badge">Seguridad Física</span>
+                <h3>Portería & Control de Accesos</h3>
+              </div>
+              <p>Digitaliza el día a día de las porterías de vigilancia. Registra entradas, salidas, parqueaderos comunes asignados y entrega de correspondencia.</p>
+              <ul class="desc-bullets">
+                <li><i class="pi pi-check-circle"></i> Bitácora digital inalterable en la nube con autorizaciones previas de residentes.</li>
+                <li><i class="pi pi-check-circle"></i> Notificación push inmediata al copropietario al recibir correspondencia.</li>
+                <li><i class="pi pi-check-circle"></i> Control de entregas de turnos y registro fotográfico de vehículos y visitantes.</li>
+              </ul>
+              <div class="desc-cta">
+                <a href="contacto.html" class="cta-button secondary">
+                  Probar Portería <i class="pi pi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Desc 3: Finanzas -->
+            <div class="desc-card" data-slide="3">
+              <div class="desc-header">
+                <span class="desc-badge">Finanzas Claras</span>
+                <h3>Finanzas & Cartera Morosa</h3>
+              </div>
+              <p>Facilita la cobranza y brinda transparencia sobre el destino de los fondos comunes. Visualiza estados directamente en el perfil del residente.</p>
+              <ul class="desc-bullets">
+                <li><i class="pi pi-check-circle"></i> Invoicing periódico automatizado de la cuota de mantenimiento habitual.</li>
+                <li><i class="pi pi-check-circle"></i> Semáforo dinámico de deudas ("Al Día" / "Moroso") visible en app.</li>
+                <li><i class="pi pi-check-circle"></i> Reporte consolidado de cartera y exportación rápida de conciliaciones.</li>
+              </ul>
+              <div class="desc-cta">
+                <a href="contacto.html" class="cta-button secondary">
+                  Probar Finanzas <i class="pi pi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -140,7 +300,7 @@
     <div class="footer-content">
       <div class="footer-brand">
         <h3>Sectic<span>Solar</span></h3>
-        <p>Servicios tecnológicos integrales, desarrollo de software avanzado y creadores de la plataforma inteligente ConjuntoOS.</p>
+        <p>Servicios tecnológicos integrales, desarrollo de software avanzado y creadores de la plataforma inteligente ConjuntOS.</p>
         <div class="footer-socials">
           <a href="#" class="social-circle" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
           <a href="#" class="social-circle" aria-label="Twitter"><i class="pi pi-twitter"></i></a>
@@ -161,8 +321,8 @@
       <div class="footer-links">
         <h4>Nuestros Productos</h4>
         <ul>
-          <li><a href="index.html">ConjuntoOS Panel Admin</a></li>
-          <li><a href="index.html">ConjuntoOS App Residente</a></li>
+          <li><a href="index.html">ConjuntOS Panel Admin</a></li>
+          <li><a href="index.html">ConjuntOS App Residente</a></li>
           <li><a href="servicios.html">Hardware Solar IoT</a></li>
         </ul>
       </div>

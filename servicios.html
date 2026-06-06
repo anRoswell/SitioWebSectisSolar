@@ -14,6 +14,16 @@
   <!-- Favicon Link -->
   <link rel="icon" type="image/png" href="assets/logo_icon_256.png" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSFC362XQF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HSFC362XQF');
+  </script>
+
   <!-- PrimeIcons CDN -->
   <link rel="stylesheet" href="https://unpkg.com/primeicons@7.0.0/primeicons.css" />
   
@@ -35,13 +45,14 @@
           <li><a href="index.html" id="navHome">Inicio</a></li>
           <li><a href="quienes-somos.html" id="navAbout">Quiénes Somos</a></li>
           <li><a href="servicios.html" class="active" id="navServices">Servicios</a></li>
+          <li><a href="../Brochure/brochure.html" id="navBrochure">Brochure</a></li>
           <li><a href="contacto.html" id="navContact">Contáctenos</a></li>
         </ul>
       </nav>
 
       <div class="flex items-center gap-4">
         <a href="contacto.html" class="cta-button cta-header-btn" id="ctaHeader">
-          Cotizar ConjuntoOS <i class="pi pi-arrow-right"></i>
+          Cotizar ConjuntOS <i class="pi pi-arrow-right"></i>
         </a>
         <button class="nav-toggle" aria-label="Abrir Menú" id="navToggleBtn">
           <i class="pi pi-bars"></i>
@@ -66,7 +77,7 @@
         <div class="service-card" id="serviceSoftware">
           <div class="service-icon-wrapper"><i class="pi pi-desktop"></i></div>
           <h3>Desarrollo de Software a Medida</h3>
-          <p>Modelamos y construimos plataformas robustas en la nube adaptadas exactamente a la lógica transaccional de su organización. Creadores de ConjuntoOS.</p>
+          <p>Modelamos y construimos plataformas robustas en la nube adaptadas exactamente a la lógica transaccional de su organización. Creadores de ConjuntOS.</p>
           <ul class="service-bullets">
             <li><i class="pi pi-chevron-right-circle"></i> Arquitecturas PostgreSQL Multi-Tenant</li>
             <li><i class="pi pi-chevron-right-circle"></i> APIs RESTful y Sockets en NestJS</li>
@@ -102,17 +113,17 @@
         </div>
       </div>
 
-      <!-- Ecosistema ConjuntoOS Section Header -->
-      <div style="margin-top: 100px;" class="section-header" id="ecosistemaConjuntoOS">
+      <!-- Ecosistema ConjuntOS Section Header -->
+      <div style="margin-top: 100px;" class="section-header" id="ecosistemaConjuntOS">
         <span class="hero-badge"><i class="pi pi-verified"></i> Plataforma Insignia</span>
-        <h2>Ecosistema Inteligente <span>ConjuntoOS</span></h2>
+        <h2>Ecosistema Inteligente <span>ConjuntOS</span></h2>
         <p>Una suite modular avanzada diseñada específicamente para optimizar la administración, la seguridad de la información y la convivencia armoniosa en Propiedades Horizontales de alto nivel.</p>
       </div>
 
       <!-- Modules 3-Column Premium Grid -->
       <div class="modules-grid">
         <!-- Modulo 1: Censo & Red Familiar -->
-        <div class="module-card" id="moduleCenso">
+        <a href="modulo-detalle.html?id=moduleCenso" class="module-card" id="moduleCenso">
           <div class="module-header">
             <div class="module-icon"><i class="pi pi-users"></i></div>
             <span class="module-badge">Habitabilidad</span>
@@ -128,10 +139,10 @@
             <h4><i class="pi pi-cog"></i> Cómo ayuda en la Administración:</h4>
             <p>Automatiza el control de censo y previene la fuga de información sensible. Al registrarse un nuevo contrato, el sistema depura los accesos anteriores, garantizando la privacidad y seguridad de la copropiedad.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Modulo 2: Asambleas & Quórum Real-Time -->
-        <div class="module-card" id="moduleAsambleas">
+        <a href="modulo-detalle.html?id=moduleAsambleas" class="module-card" id="moduleAsambleas">
           <div class="module-header">
             <div class="module-icon"><i class="pi pi-comments"></i></div>
             <span class="module-badge real-time">Sockets Activos</span>
@@ -147,10 +158,10 @@
             <h4><i class="pi pi-cog"></i> Cómo ayuda en la Administración:</h4>
             <p>Reduce a cero las disputas sobre el quórum legal y elimina las horas dedicadas al conteo manual de coeficientes. Permite tomar decisiones rápidas y transparentes con total validez jurídica.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Modulo 3: Votaciones & Urnas Digitales -->
-        <div class="module-card" id="moduleVotaciones">
+        <a href="modulo-detalle.html?id=moduleVotaciones" class="module-card" id="moduleVotaciones">
           <div class="module-header">
             <div class="module-icon"><i class="pi pi-check-square"></i></div>
             <span class="module-badge">Democracia</span>
@@ -166,10 +177,10 @@
             <h4><i class="pi pi-cog"></i> Cómo ayuda en la Administración:</h4>
             <p>Aumenta la participación activa de los copropietarios en votaciones de presupuestos o reformas. Las decisiones se toman en minutos, agilizando la gestión administrativa del consejo.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Modulo 4: Portería & Control de Accesos -->
-        <div class="module-card" id="modulePorteria">
+        <a href="modulo-detalle.html?id=modulePorteria" class="module-card" id="modulePorteria">
           <div class="module-header">
             <div class="module-icon"><i class="pi pi-shield"></i></div>
             <span class="module-badge">Seguridad Física</span>
@@ -185,10 +196,10 @@
             <h4><i class="pi pi-cog"></i> Cómo ayuda en la Administración:</h4>
             <p>Sustituye los libros físicos de portería con una bitácora en la nube inalterable. Facilita auditorías de seguridad, optimiza la entrega de paquetes y previene accesos no autorizados.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Modulo 5: Finanzas & Cartera Morosa -->
-        <div class="module-card" id="moduleFinanzas">
+        <a href="modulo-detalle.html?id=moduleFinanzas" class="module-card" id="moduleFinanzas">
           <div class="module-header">
             <div class="module-icon"><i class="pi pi-wallet"></i></div>
             <span class="module-badge">Economía</span>
@@ -204,10 +215,10 @@
             <h4><i class="pi pi-cog"></i> Cómo ayuda en la Administración:</h4>
             <p>Disminuye el índice de cartera morosa mediante recordatorios proactivos y visualización de estados en la app. Proporciona al administrador un panorama financiero real sin retrasar reportes.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Modulo 6: Matriz de Permisos Efectivos -->
-        <div class="module-card" id="modulePermisos">
+        <a href="modulo-detalle.html?id=modulePermisos" class="module-card" id="modulePermisos">
           <div class="module-header">
             <div class="module-icon"><i class="pi pi-lock"></i></div>
             <span class="module-badge">Ciberseguridad</span>
@@ -223,7 +234,7 @@
             <h4><i class="pi pi-cog"></i> Cómo ayuda en la Administración:</h4>
             <p>Garantiza el cumplimiento estricto de las leyes de protección de datos (Habeas Data) al evitar que personal de portería o terceros visualicen información confidencial de copropietarios.</p>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Development Methodology / Work Process -->
@@ -265,7 +276,7 @@
     <div class="footer-content">
       <div class="footer-brand">
         <h3>Sectic<span>Solar</span></h3>
-        <p>Servicios tecnológicos integrales, desarrollo de software avanzado y creadores de la plataforma inteligente ConjuntoOS.</p>
+        <p>Servicios tecnológicos integrales, desarrollo de software avanzado y creadores de la plataforma inteligente ConjuntOS.</p>
         <div class="footer-socials">
           <a href="#" class="social-circle" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
           <a href="#" class="social-circle" aria-label="Twitter"><i class="pi pi-twitter"></i></a>
@@ -286,8 +297,8 @@
       <div class="footer-links">
         <h4>Nuestros Productos</h4>
         <ul>
-          <li><a href="index.html">ConjuntoOS Panel Admin</a></li>
-          <li><a href="index.html">ConjuntoOS App Residente</a></li>
+          <li><a href="index.html">ConjuntOS Panel Admin</a></li>
+          <li><a href="index.html">ConjuntOS App Residente</a></li>
           <li><a href="servicios.html">Hardware Solar IoT</a></li>
         </ul>
       </div>
