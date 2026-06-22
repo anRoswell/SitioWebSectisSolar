@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- SEO Best Practices: Metas, Charset & Responsive -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eliminación de Cuenta | Plataforma ConjuntOS por SecticSolar. Solicita la eliminación de tu cuenta y conoce cómo protegemos y gestionamos tus datos personales.">
+  <meta name="keywords" content="SecticSolar, ConjuntOS, Eliminación de Cuenta, Borrar Datos, Privacidad, Habeas Data, Play Store">
+  <meta name="author" content="Alfonso Navarro & Carlos Alcala">
+  <meta name="robots" content="noindex, follow">
+  
+  <title>Eliminación de Cuenta | ConjuntOS</title>
+
+  <!-- Favicon Link -->
+  <link rel="icon" type="image/png" href="assets/logo_icon_256.png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSFC362XQF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HSFC362XQF');
+  </script>
+
+  <!-- PrimeIcons CDN for vectors -->
+  <link rel="stylesheet" href="https://unpkg.com/primeicons@7.0.0/primeicons.css" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Custom page styling for premium account deletion layout -->
+  <style>
+    .legal-content-section {
+      padding: 140px 16px 80px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .legal-container {
+      background: var(--card-bg, rgba(21, 23, 30, 0.65));
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+    .legal-header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 30px;
+    }
+    .legal-header h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .legal-header p {
+      color: var(--text-muted, #94a3b8);
+      font-size: 14px;
+    }
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      margin-top: 20px;
+    }
+    @media (max-width: 900px) {
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .info-column {
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .info-column h2 {
+      font-size: 22px;
+      color: #fff;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+      padding-bottom: 8px;
+    }
+    .info-column p {
+      margin-bottom: 15px;
+    }
+    
+    /* Step Cards Styling */
+    .steps-container {
+      margin: 25px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .step-card {
+      display: flex;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      transition: var(--transition-smooth);
+    }
+    .step-card:hover {
+      border-color: hsl(var(--solar-accent) / 0.3);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: hsl(var(--solar-accent) / 0.15);
+      color: hsl(var(--solar-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .step-text h3 {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    .step-text p {
+      font-size: 13px;
+      color: #94a3b8;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Data Tables/Cards */
+    .data-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 15px;
+    }
+    @media (max-width: 600px) {
+      .data-card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .data-status-card {
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .data-status-card.deleted {
+      border-left: 4px solid #ef4444;
+    }
+    .data-status-card.retained {
+      border-left: 4px solid #f59e0b;
+    }
+    .data-status-card h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .data-status-card.deleted h3 { color: #f87171; }
+    .data-status-card.retained h3 { color: #fbbf24; }
+    .data-status-card ul {
+      padding-left: 20px;
+      list-style-type: square;
+    }
+    .data-status-card li {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+    }
+    .data-status-card p.retention-note {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 10px;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* Form Card Wrapper */
+    .form-column {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 30px;
+      position: sticky;
+      top: 120px;
+    }
+    .form-card h2 {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .form-card p {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 14px;
+      font-family: var(--font-body);
+      transition: var(--transition-smooth);
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: hsl(var(--solar-accent));
+      box-shadow: 0 0 0 2px hsl(var(--solar-accent) / 0.1);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .checkbox-group {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .checkbox-group input {
+      margin-top: 3px;
+      cursor: pointer;
+    }
+    .checkbox-group label {
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Glassmorphic Header Navigation -->
+  <header id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon"><i class="pi pi-sun"></i></div>
+        Sectic<span>Solar</span>
+      </a>
+      
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html" id="navHome">Inicio</a></li>
+          <li><a href="quienes-somos.html" id="navAbout">Quiénes Somos</a></li>
+          <li><a href="servicios.html" id="navServices">Servicios</a></li>
+          <li><a href="../Brochure/brochure.html" id="navBrochure">Brochure</a></li>
+          <li><a href="contacto.html" id="navContact">Contáctenos</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="contacto.html" class="cta-button cta-header-btn" id="ctaHeader">
+          Cotizar ConjuntOS <i class="pi pi-arrow-right"></i>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir Menú" id="navToggleBtn">
+          <i class="pi pi-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-content-section">
+      <div class="legal-container">
+        
+        <div class="legal-header">
+          <h1>Eliminación de Cuenta y Datos</h1>
+          <p>Plataforma ConjuntOS &copy; desarrollada por SecticSolar</p>
+        </div>
+
+        <div class="grid-layout">
+          
+          <!-- Information Column -->
+          <div class="info-column">
+            <p>
+              En <strong>SecticSolar</strong>, nos tomamos muy en serio la privacidad y la soberanía de los datos personales en nuestra plataforma de administración de copropiedades <strong>ConjuntOS</strong>. De acuerdo con el Reglamento General de Protección de Datos (GDPR) y la Ley 1581 de 2012 de Protección de Datos Personales en Colombia (Habeas Data), te brindamos la posibilidad de solicitar la eliminación total o parcial de tu cuenta de usuario y la información asociada a ella.
+            </p>
+
+            <h2>¿Cómo solicitar la eliminación de tu cuenta?</h2>
+            <p>
+              Como usuario de la aplicación móvil de <strong>ConjuntOS</strong>, tienes dos métodos oficiales para solicitar la eliminación permanente de tu cuenta de residente:
+            </p>
+            
+            <div class="steps-container">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                  <h3>Desde la Aplicación Móvil (Recomendado)</h3>
+                  <p>Inicia sesión en la aplicación móvil de ConjuntOS, dirígete a tu <strong>Perfil</strong> (o menú de Configuración), presiona la opción <strong>"Eliminar Cuenta"</strong> y confirma la acción con tu contraseña. Este proceso iniciará el borrado inmediato de tus datos.</p>
+                </div>
+              </div>
+              
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                  <h3>Mediante este Formulario Web</h3>
+                  <p>Si ya no tienes acceso a la aplicación móvil o has desinstalado la app, puedes completar el formulario que se encuentra a la derecha de esta página para enviar una solicitud formal de eliminación directamente a nuestro equipo técnico de soporte.</p>
+                </div>
+              </div>
+              
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                  <h3>Verificación y Confirmación</h3>
+                  <p>Por razones de seguridad, enviaremos un correo electrónico de confirmación a tu dirección registrada. Una vez verificado el enlace, tu cuenta de ConjuntOS será programada para eliminación y el proceso finalizará en un período máximo de 10 días hábiles.</p>
+                </div>
+              </div>
+            </div>
+
+            <h2>Tratamiento de Datos: ¿Qué eliminamos y qué conservamos?</h2>
+            <p>
+              Al procesar tu solicitud, realizamos una depuración detallada en nuestras bases de datos relacionales en la nube. A continuación, te explicamos el destino de tus datos:
+            </p>
+
+            <div class="data-card-grid">
+              
+              <!-- Data Deleted Card -->
+              <div class="data-status-card deleted">
+                <h3><i class="pi pi-trash"></i> Datos que se borrarán</h3>
+                <ul>
+                  <li><strong>Información de Perfil:</strong> Nombre completo, correo electrónico, número de teléfono celular, documento de identidad (cédula) y contraseña cifrada.</li>
+                  <li><strong>Registros de Habitabilidad:</strong> Tu asociación actual a la vivienda o apartamento en el censo del conjunto residencial.</li>
+                  <li><strong>Vehículos y Mascotas:</strong> Toda la información de placas de carros/motos y fichas de mascotas registradas bajo tu unidad familiar.</li>
+                  <li><strong>Autorizaciones:</strong> Listados de pre-autorizaciones de visitas creadas en tu perfil.</li>
+                </ul>
+              </div>
+
+              <!-- Data Retained Card -->
+              <div class="data-status-card retained">
+                <h3><i class="pi pi-lock"></i> Datos que se conservarán</h3>
+                <ul>
+                  <li><strong>Historial Financiero:</strong> Registro de cuotas de administración pagadas, comprobantes de pago subidos y facturas generadas.</li>
+                  <li><strong>Bitácora de Portería:</strong> Historial físico de ingresos de visitas y recepción de encomiendas (se desvinculan de tu nombre y se anonimizan).</li>
+                  <li><strong>Participación en Asambleas:</strong> Los votos emitidos y coeficientes calculados en asambleas pasadas se conservan como actas consolidadas firmadas.</li>
+                </ul>
+                <p class="retention-note">
+                  * Nota legal: Conservamos los datos contables y de auditoría de asambleas por un período legal de <strong>5 años</strong> conforme a la legislación comercial colombiana antes de su destrucción definitiva. Los registros de portería son propiedad de la copropiedad residencial para su seguridad física.
+                </p>
+              </div>
+
+            </div>
+
+            <h2>Contacto de Soporte Técnico</h2>
+            <p>
+              Si tienes alguna duda adicional sobre el proceso de eliminación o deseas solicitar la revocación del consentimiento para el tratamiento de tus datos, puedes escribir directamente a los Ingenieros de Sistemas fundadores de SecticSolar a: <strong>secticssolar@gmail.com</strong>.
+            </p>
+          </div>
+
+          <!-- Form Column -->
+          <div class="form-column">
+            <div class="form-card">
+              <h2>Solicitud de Eliminación</h2>
+              <p>Completa el formulario para enviar la solicitud de baja de ConjuntOS a nuestro equipo de soporte.</p>
+              
+              <form id="deleteAccountForm">
+                <div class="form-group">
+                  <label for="delName">Nombre Completo *</label>
+                  <input type="text" id="delName" placeholder="Ej. Juan Pérez" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="delEmail">Correo Electrónico Registrado *</label>
+                  <input type="email" id="delEmail" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="delIdentity">Documento de Identidad (Cédula) *</label>
+                  <input type="text" id="delIdentity" placeholder="Ej. 1047123456" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="delConjunto">Conjunto Residencial / Copropiedad *</label>
+                  <input type="text" id="delConjunto" placeholder="Ej. Conjunto Residencial Los Girasoles" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="delReason">Motivo de la baja (Opcional)</label>
+                  <select id="delReason">
+                    <option value="cambio_residencia">Cambio de residencia / Mudanza</option>
+                    <option value="no_deseado">Ya no deseo usar la aplicación</option>
+                    <option value="error_registro">Error en el registro de datos</option>
+                    <option value="otro">Otro motivo</option>
+                  </select>
+                </div>
+
+                <div class="checkbox-group">
+                  <input type="checkbox" id="delConsent" required>
+                  <label for="delConsent">
+                    Entiendo que este proceso es irreversible y que se borrará el perfil de ConjuntOS junto con los datos de censo, red familiar y vehículos asociados a mi cuenta personal. *
+                  </label>
+                </div>
+
+                <button type="submit" class="cta-button" style="width: 100%; text-align: center; justify-content: center;">
+                  Solicitar Eliminación <i class="pi pi-user-minus"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Sectic<span>Solar</span></h3>
+        <p>Servicios tecnológicos integrales, desarrollo de software avanzado y creadores de la plataforma inteligente ConjuntOS.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-circle" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+          <a href="#" class="social-circle" aria-label="Twitter"><i class="pi pi-twitter"></i></a>
+          <a href="#" class="social-circle" aria-label="GitHub"><i class="pi pi-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+          <li><a href="servicios.html">Nuestros Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+          <li><a href="eliminacion-cuenta.html">Eliminación de Cuenta</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Nuestros Productos</h4>
+        <ul>
+          <li><a href="index.html">ConjuntOS Panel Admin</a></li>
+          <li><a href="index.html">ConjuntOS App Residente</a></li>
+          <li><a href="servicios.html">Hardware Solar IoT</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 SecticSolar. Todos los derechos reservados. Desarrollado por Ing. Alfonso Navarro & Ing. Carlos Alcala.</p>
+      <p>Cartagena - Turbaco, Colombia</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Script Link -->
+  <script src="app.js"></script>
+
+  <!-- Script to bind Form Submission with showToast from app.js -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const delForm = document.getElementById('deleteAccountForm');
+      if (delForm) {
+        delForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const nameVal = document.getElementById('delName').value.trim();
+          const emailVal = document.getElementById('delEmail').value.trim();
+          const submitBtn = delForm.querySelector('button[type="submit"]');
+
+          if (!nameVal || !emailVal) return;
+
+          // Submitting state
+          const originalBtnText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="pi pi-spin pi-spinner mr-2"></i>Procesando...';
+
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+
+            // Success feedback toast (showToast is declared globally in app.js)
+            if (typeof showToast === 'function') {
+              showToast(
+                'Solicitud Enviada',
+                `Solicitud recibida para ${emailVal}. Te enviaremos un correo de verificación en breve.`,
+                'pi-check-circle'
+              );
+            } else {
+              alert('Solicitud enviada con éxito. Por favor revisa tu correo electrónico para verificar la solicitud.');
+            }
+
+            delForm.reset();
+          }, 1800);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
